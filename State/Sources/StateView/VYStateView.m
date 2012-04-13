@@ -101,12 +101,16 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             // Set image view bounds.
             if (_imageView.superview != nil)
             {
+                CGFloat imageMaxWidth = constraintWidth;
+                CGFloat imageWidth = self.image.size.width;
+                
                 CGFloat imageMaxHeight = constraintHeight / 2.0;
                 CGFloat imageHeight = self.image.size.height;
                 
+                CGFloat imageViewWidth = imageWidth > imageMaxWidth ? imageMaxWidth : imageWidth;
                 CGFloat imageViewHeight = imageHeight > imageMaxHeight ? imageMaxHeight : imageHeight;
                 
-                _imageView.bounds = CGRectMake(0.0, 0.0, constraintWidth, imageViewHeight);
+                _imageView.bounds = CGRectMake(0.0, 0.0, imageViewWidth, imageViewHeight);
                 
                 [subviews addObject:_imageView];
             }
@@ -116,7 +120,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             {
                 CGSize titleLabelSize = [_titleLabel.text sizeWithFont:_titleLabel.font constrainedToSize:constraintRect.size];
                 
-                _titleLabel.bounds = CGRectMake(0.0, 0.0, constraintWidth, titleLabelSize.height);
+                _titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
                 
                 [subviews addObject:_titleLabel];
             }
@@ -126,7 +130,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             {
                 CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font constrainedToSize:constraintRect.size];
                 
-                _messageLabel.bounds = CGRectMake(0.0, 0.0, constraintWidth, messageLabelSize.height);
+                _messageLabel.bounds = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
                 [subviews addObject:_messageLabel];
             }
@@ -145,15 +149,15 @@ static CGFloat const kMessageLabelFontSize = 13.0;
                 [subviews addObject:_activityIndicatorView];
             }
             
-            // Set title label bounds.
-            if (_titleLabel.superview != nil)
+            // Set message label bounds.
+            if (_messageLabel.superview != nil)
             {
                 CGFloat width = constraintWidth - CGRectGetWidth(_activityIndicatorView.bounds) - kPadding;
-                CGSize titleLabelSize = [_titleLabel.text sizeWithFont:_titleLabel.font forWidth:width lineBreakMode:_titleLabel.lineBreakMode];
+                CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font forWidth:width lineBreakMode:_messageLabel.lineBreakMode];
                 
-                _titleLabel.bounds = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
+                _messageLabel.bounds = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
-                [subviews addObject:_titleLabel];
+                [subviews addObject:_messageLabel];
             }
             
             // Align subviews.
@@ -203,8 +207,8 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             }
             
             _imageView.hidden = YES;
-            _titleLabel.hidden = NO;
-            _messageLabel.hidden = YES;
+            _titleLabel.hidden = YES;
+            _messageLabel.hidden = NO;
             
             break;
         }

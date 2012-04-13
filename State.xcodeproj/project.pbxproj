@@ -19,6 +19,8 @@
 		D8D00D4A15382820000E4A7B /* VYStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D4915382820000E4A7B /* VYStateView.m */; };
 		D8D00D5115383AA3000E4A7B /* VYStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D4F15383AA3000E4A7B /* VYStateViewController.m */; };
 		D8D00D5215383AA3000E4A7B /* VYStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */; };
+		D8D00D671538777D000E4A7B /* STATE.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D651538777D000E4A7B /* STATE.png */; };
+		D8D00D681538777D000E4A7B /* STATE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D661538777D000E4A7B /* STATE@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		D8D00D4E15383AA3000E4A7B /* VYStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VYStateViewController.h; path = StateViewController/VYStateViewController.h; sourceTree = "<group>"; };
 		D8D00D4F15383AA3000E4A7B /* VYStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VYStateViewController.m; path = StateViewController/VYStateViewController.m; sourceTree = "<group>"; };
 		D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VYStateViewController.xib; path = StateViewController/VYStateViewController.xib; sourceTree = "<group>"; };
+		D8D00D651538777D000E4A7B /* STATE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STATE.png; sourceTree = "<group>"; };
+		D8D00D661538777D000E4A7B /* STATE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "STATE@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		D8D00D17153825BF000E4A7B /* State */ = {
 			isa = PBXGroup;
 			children = (
+				D8D00D621538777C000E4A7B /* Resources */,
 				D8D00D4015382763000E4A7B /* Sources */,
 				D8D00D18153825BF000E4A7B /* Supporting Files */,
 			);
@@ -180,6 +185,31 @@
 				D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */,
 			);
 			name = StateViewController;
+			sourceTree = "<group>";
+		};
+		D8D00D621538777C000E4A7B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D631538777D000E4A7B /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8D00D631538777D000E4A7B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D641538777D000E4A7B /* State */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D8D00D641538777D000E4A7B /* State */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D651538777D000E4A7B /* STATE.png */,
+				D8D00D661538777D000E4A7B /* STATE@2x.png */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D00D5215383AA3000E4A7B /* VYStateViewController.xib in Resources */,
+				D8D00D671538777D000E4A7B /* STATE.png in Resources */,
+				D8D00D681538777D000E4A7B /* STATE@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,7 +35,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark -
@@ -53,14 +53,16 @@
         case VYStateViewModeStatic:
         {
             self.stateView.mode = VYStateViewModeActivity;
-            self.stateView.textColor = [UIColor redColor];
-            self.stateView.title = @"Loading...";
+            self.stateView.textShadowColor = [UIColor clearColor];
+            self.stateView.message = @"Loading...";
             
             break;
         }
         case VYStateViewModeActivity:
         {
             self.stateView.mode = VYStateViewModeStatic;
+            self.stateView.textShadowColor = [UIColor blackColor];
+            self.stateView.image = [UIImage imageNamed:@"STATE.png"];
             self.stateView.title = @"Title";
             self.stateView.message = @"Message.";
             

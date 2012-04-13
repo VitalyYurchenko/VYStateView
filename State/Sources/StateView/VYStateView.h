@@ -25,8 +25,8 @@ typedef NSUInteger VYStateViewMode;
 @property (nonatomic, assign) VYStateViewMode mode;
 
 @property (nonatomic, strong) UIImage *image; // Currently disabled in VYStateViewModeActivity mode.
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *message; // Currently disabled in VYStateViewModeActivity mode.
+@property (nonatomic, copy) NSString *title; // Currently disabled in VYStateViewModeActivity mode.
+@property (nonatomic, copy) NSString *message;
 
 @property (nonatomic, strong) UIColor *textColor; // Default to whiteColor.
 @property (nonatomic, strong) UIColor *textShadowColor; // Default to blackColor.
