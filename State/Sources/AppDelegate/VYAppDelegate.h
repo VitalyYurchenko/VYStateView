@@ -1,16 +1,18 @@
 //
-//  StateTests.h
-//  StateTests
+//  VYAppDelegate.h
+//  State
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
 //
 // ********************************************************************************************************************************************************** //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <UIKit/UIKit.h>
 
 // ********************************************************************************************************************************************************** //
 
-@interface StateTests : SenTestCase
+@interface VYAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (nonatomic, strong) UIWindow *window;
 
 @end

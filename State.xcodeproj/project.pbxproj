@@ -10,14 +10,15 @@
 		D8D00D12153825BF000E4A7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D11153825BF000E4A7B /* UIKit.framework */; };
 		D8D00D14153825BF000E4A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D13153825BF000E4A7B /* Foundation.framework */; };
 		D8D00D16153825BF000E4A7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D15153825BF000E4A7B /* CoreGraphics.framework */; };
-		D8D00D1C153825BF000E4A7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D1A153825BF000E4A7B /* InfoPlist.strings */; };
 		D8D00D1E153825BF000E4A7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D1D153825BF000E4A7B /* main.m */; };
-		D8D00D22153825BF000E4A7B /* VYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D21153825BF000E4A7B /* VYAppDelegate.m */; };
 		D8D00D2A153825BF000E4A7B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D29153825BF000E4A7B /* SenTestingKit.framework */; };
 		D8D00D2B153825BF000E4A7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D11153825BF000E4A7B /* UIKit.framework */; };
 		D8D00D2C153825BF000E4A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D13153825BF000E4A7B /* Foundation.framework */; };
-		D8D00D34153825BF000E4A7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D32153825BF000E4A7B /* InfoPlist.strings */; };
 		D8D00D37153825BF000E4A7B /* StateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D36153825BF000E4A7B /* StateTests.m */; };
+		D8D00D4415382796000E4A7B /* VYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D4315382796000E4A7B /* VYAppDelegate.m */; };
+		D8D00D4A15382820000E4A7B /* VYStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D4915382820000E4A7B /* VYStateView.m */; };
+		D8D00D5115383AA3000E4A7B /* VYStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D4F15383AA3000E4A7B /* VYStateViewController.m */; };
+		D8D00D5215383AA3000E4A7B /* VYStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +36,21 @@
 		D8D00D11153825BF000E4A7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D00D13153825BF000E4A7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8D00D15153825BF000E4A7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D8D00D19153825BF000E4A7B /* State-Info.plist */ = {isa = PBXFileReference; path = "State-Info.plist"; sourceTree = "<group>"; };
-		D8D00D1B153825BF000E4A7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8D00D19153825BF000E4A7B /* State-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "State-Info.plist"; sourceTree = "<group>"; };
 		D8D00D1D153825BF000E4A7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D8D00D1F153825BF000E4A7B /* State-Prefix.pch */ = {isa = PBXFileReference; path = "State-Prefix.pch"; sourceTree = "<group>"; };
-		D8D00D20153825BF000E4A7B /* VYAppDelegate.h */ = {isa = PBXFileReference; path = VYAppDelegate.h; sourceTree = "<group>"; };
-		D8D00D21153825BF000E4A7B /* VYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VYAppDelegate.m; sourceTree = "<group>"; };
+		D8D00D1F153825BF000E4A7B /* State-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "State-Prefix.pch"; sourceTree = "<group>"; };
 		D8D00D28153825BF000E4A7B /* StateTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StateTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D00D29153825BF000E4A7B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D8D00D31153825BF000E4A7B /* StateTests-Info.plist */ = {isa = PBXFileReference; path = "StateTests-Info.plist"; sourceTree = "<group>"; };
-		D8D00D33153825BF000E4A7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D8D00D35153825BF000E4A7B /* StateTests.h */ = {isa = PBXFileReference; path = StateTests.h; sourceTree = "<group>"; };
+		D8D00D31153825BF000E4A7B /* StateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StateTests-Info.plist"; sourceTree = "<group>"; };
+		D8D00D35153825BF000E4A7B /* StateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateTests.h; sourceTree = "<group>"; };
 		D8D00D36153825BF000E4A7B /* StateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateTests.m; sourceTree = "<group>"; };
+		D8D00D4215382796000E4A7B /* VYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYAppDelegate.h; sourceTree = "<group>"; };
+		D8D00D4315382796000E4A7B /* VYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYAppDelegate.m; sourceTree = "<group>"; };
+		D8D00D4815382820000E4A7B /* VYStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VYStateView.h; path = StateView/VYStateView.h; sourceTree = "<group>"; };
+		D8D00D4915382820000E4A7B /* VYStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VYStateView.m; path = StateView/VYStateView.m; sourceTree = "<group>"; };
+		D8D00D4E15383AA3000E4A7B /* VYStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VYStateViewController.h; path = StateViewController/VYStateViewController.h; sourceTree = "<group>"; };
+		D8D00D4F15383AA3000E4A7B /* VYStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VYStateViewController.m; path = StateViewController/VYStateViewController.m; sourceTree = "<group>"; };
+		D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VYStateViewController.xib; path = StateViewController/VYStateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +110,7 @@
 		D8D00D17153825BF000E4A7B /* State */ = {
 			isa = PBXGroup;
 			children = (
-				D8D00D20153825BF000E4A7B /* VYAppDelegate.h */,
-				D8D00D21153825BF000E4A7B /* VYAppDelegate.m */,
+				D8D00D4015382763000E4A7B /* Sources */,
 				D8D00D18153825BF000E4A7B /* Supporting Files */,
 			);
 			path = State;
@@ -117,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				D8D00D19153825BF000E4A7B /* State-Info.plist */,
-				D8D00D1A153825BF000E4A7B /* InfoPlist.strings */,
 				D8D00D1D153825BF000E4A7B /* main.m */,
 				D8D00D1F153825BF000E4A7B /* State-Prefix.pch */,
 			);
@@ -138,9 +140,46 @@
 			isa = PBXGroup;
 			children = (
 				D8D00D31153825BF000E4A7B /* StateTests-Info.plist */,
-				D8D00D32153825BF000E4A7B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8D00D4015382763000E4A7B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D4115382796000E4A7B /* AppDelegate */,
+				D8D00D46153827F1000E4A7B /* StateView */,
+				D8D00D47153827FD000E4A7B /* StateViewController */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D8D00D4115382796000E4A7B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D4215382796000E4A7B /* VYAppDelegate.h */,
+				D8D00D4315382796000E4A7B /* VYAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D8D00D46153827F1000E4A7B /* StateView */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D4815382820000E4A7B /* VYStateView.h */,
+				D8D00D4915382820000E4A7B /* VYStateView.m */,
+			);
+			name = StateView;
+			sourceTree = "<group>";
+		};
+		D8D00D47153827FD000E4A7B /* StateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D4E15383AA3000E4A7B /* VYStateViewController.h */,
+				D8D00D4F15383AA3000E4A7B /* VYStateViewController.m */,
+				D8D00D5015383AA3000E4A7B /* VYStateViewController.xib */,
+			);
+			name = StateViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D00D1C153825BF000E4A7B /* InfoPlist.strings in Resources */,
+				D8D00D5215383AA3000E4A7B /* VYStateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D00D34153825BF000E4A7B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D00D1E153825BF000E4A7B /* main.m in Sources */,
-				D8D00D22153825BF000E4A7B /* VYAppDelegate.m in Sources */,
+				D8D00D4415382796000E4A7B /* VYAppDelegate.m in Sources */,
+				D8D00D4A15382820000E4A7B /* VYStateView.m in Sources */,
+				D8D00D5115383AA3000E4A7B /* VYStateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,25 +312,6 @@
 			targetProxy = D8D00D2D153825BF000E4A7B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D8D00D1A153825BF000E4A7B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8D00D1B153825BF000E4A7B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D8D00D32153825BF000E4A7B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8D00D33153825BF000E4A7B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D8D00D38153825BF000E4A7B /* Debug */ = {
