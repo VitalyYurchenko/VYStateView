@@ -22,7 +22,7 @@ typedef NSUInteger VYStateViewMode;
 
 @interface VYStateView : UIView
 
-@property (nonatomic, assign) VYStateViewMode mode;
+@property (nonatomic, assign) VYStateViewMode mode; // Default to VYStateViewModeStatic.
 
 @property (nonatomic, strong) UIImage *image; // Currently disabled in VYStateViewModeActivity mode.
 @property (nonatomic, copy) NSString *title; // Currently disabled in VYStateViewModeActivity mode.
