@@ -23,8 +23,8 @@ static CGFloat const kMessageLabelFontSize = 13.0;
 
 - (void)initialSetup;
 
-- (void)alignSubviewsHorizontaly:(NSArray *)subviews;
-- (void)alignSubviewsVerticaly:(NSArray *)subviews;
+- (void)alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
+- (void)alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
 
 @end
 
@@ -120,7 +120,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             {
                 CGSize titleLabelSize = [_titleLabel.text sizeWithFont:_titleLabel.font constrainedToSize:constraintRect.size];
                 
-                _titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
+                _titleLabel.bounds = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
                 
                 [subviews addObject:_titleLabel];
             }
@@ -136,7 +136,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             }
             
             // Align subviews.
-            [self alignSubviewsVerticaly:subviews];
+            [self alignSubviewsVerticaly:subviews usingPadding:kPadding];
             
             break;
         }
@@ -161,7 +161,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             }
             
             // Align subviews.
-            [self alignSubviewsHorizontaly:subviews];
+            [self alignSubviewsHorizontaly:subviews usingPadding:kPadding];
             
             break;
         }
@@ -365,14 +365,14 @@ static CGFloat const kMessageLabelFontSize = 13.0;
     self.textShadowColor = [UIColor blackColor];
 }
 
-- (void)alignSubviewsHorizontaly:(NSArray *)subviews
+- (void)alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding
 {
     // Calculate subviews width.
-    CGFloat contentWidth = -kPadding;
+    CGFloat contentWidth = -padding;
     
     for (UIView *subview in subviews)
     {
-        contentWidth += CGRectGetWidth(subview.bounds) + kPadding;
+        contentWidth += CGRectGetWidth(subview.bounds) + padding;
     }
     
     // Align subviews.
@@ -382,18 +382,18 @@ static CGFloat const kMessageLabelFontSize = 13.0;
     {
         subview.center = CGPointMake(CGRectGetMidX(self.bounds) + CGRectGetMidX(subview.bounds) + horizontalShift, CGRectGetMidY(self.bounds));
         
-        horizontalShift += CGRectGetWidth(subview.bounds) + kPadding;
+        horizontalShift += CGRectGetWidth(subview.bounds) + padding;
     }
 }
 
-- (void)alignSubviewsVerticaly:(NSArray *)subviews
+- (void)alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding
 {
     // Calculate content height.
-    CGFloat contentHeight = -kPadding;
+    CGFloat contentHeight = -padding;
     
     for (UIView *subview in subviews)
     {
-        contentHeight += CGRectGetHeight(subview.bounds) + kPadding;
+        contentHeight += CGRectGetHeight(subview.bounds) + padding;
     }
     
     // Align content.
@@ -403,7 +403,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
     {
         subview.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) + CGRectGetMidY(subview.bounds) + verticalShift);
         
-        verticalShift += CGRectGetHeight(subview.bounds) + kPadding;
+        verticalShift += CGRectGetHeight(subview.bounds) + padding;
     }
 }
 
