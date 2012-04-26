@@ -85,10 +85,13 @@ static CGFloat const kMessageLabelFontSize = 13.0;
 
 - (void)layoutSubviews
 {
-    CGRect constraintRect = CGRectMake(CGRectGetMinX(self.bounds) + kMargin,
-                                       CGRectGetMinY(self.bounds) + kMargin,
-                                       CGRectGetWidth(self.bounds) - 2.0 * kMargin,
-                                       CGRectGetHeight(self.bounds) - 2.0 * kMargin);
+    CGRect constraintRect = CGRectMake
+    (
+        CGRectGetMinX(self.bounds) + kMargin,
+        CGRectGetMinY(self.bounds) + kMargin,
+        CGRectGetWidth(self.bounds) - 2.0 * kMargin,
+        CGRectGetHeight(self.bounds) - 2.0 * kMargin
+    );
     CGFloat constraintWidth = CGRectGetWidth(constraintRect);
     CGFloat constraintHeight = CGRectGetHeight(constraintRect);
     
@@ -161,7 +164,7 @@ static CGFloat const kMessageLabelFontSize = 13.0;
             }
             
             // Align subviews.
-            [self alignSubviewsHorizontaly:subviews usingPadding:kPadding];
+            [self alignSubviewsHorizontaly:subviews usingPadding:kPadding / 2.0];
             
             break;
         }
