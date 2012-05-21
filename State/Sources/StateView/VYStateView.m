@@ -15,7 +15,7 @@ static CGFloat const kMargin = 20.0;
 static CGFloat const kPadding = 10.0;
 
 static CGFloat const kTitleLabelFontSize = 20.0;
-static CGFloat const kMessageLabelFontSize = 13.0;
+static CGFloat const kMessageLabelFontSize = 14.0;
 
 // ********************************************************************************************************************************************************** //
 
