@@ -11,44 +11,24 @@
 
 // ********************************************************************************************************************************************************** //
 
-static CGFloat const kMargin = 20.0;
-static CGFloat const kPadding = 10.0;
+static const CGFloat kVYStateViewMargin = 20.0;
+static const CGFloat kVYStateViewPadding = 10.0;
 
-static CGFloat const kTitleLabelFontSize = 20.0;
-static CGFloat const kMessageLabelFontSize = 14.0;
-
-// ********************************************************************************************************************************************************** //
-
-@interface VYStateView ()
-
-- (void)initialSetup;
-
-- (void)alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
-- (void)alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
-
-@end
+static const CGFloat kVYStateViewTitleLabelFontSize = 20.0;
+static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 
 // ********************************************************************************************************************************************************** //
 
 @implementation VYStateView
 {
-    __strong UIImageView *_imageView;
-    __strong UIActivityIndicatorView *_activityIndicatorView;
-    __strong UILabel *_titleLabel;
-    __strong UILabel *_messageLabel;
+    UIImageView *_imageView;
+    UIActivityIndicatorView *_activityIndicatorView;
+    UILabel *_titleLabel;
+    UILabel *_messageLabel;
     
-    __strong UIFont *_titleLabelFont;
-    __strong UIFont *_messageLabelFont;
+    UIFont *_titleLabelFont;
+    UIFont *_messageLabelFont;
 }
-
-@synthesize mode = _mode;
-
-@synthesize image = _image;
-@synthesize title = _title;
-@synthesize message = _message;
-
-@synthesize textColor = _textColor;
-@synthesize textShadowColor = _textShadowColor;
 
 #pragma mark -
 #pragma mark Object Lifecycle
@@ -85,13 +65,11 @@ static CGFloat const kMessageLabelFontSize = 14.0;
 
 - (void)layoutSubviews
 {
-    CGRect constraintRect = CGRectMake
-    (
-        CGRectGetMinX(self.bounds) + kMargin,
-        CGRectGetMinY(self.bounds) + kMargin,
-        CGRectGetWidth(self.bounds) - 2.0 * kMargin,
-        CGRectGetHeight(self.bounds) - 2.0 * kMargin
-    );
+    CGRect constraintRect = CGRectMake(
+        CGRectGetMinX(self.bounds) + kVYStateViewMargin,
+        CGRectGetMinY(self.bounds) + kVYStateViewMargin,
+        CGRectGetWidth(self.bounds) - 2.0 * kVYStateViewMargin,
+        CGRectGetHeight(self.bounds) - 2.0 * kVYStateViewMargin);
     CGFloat constraintWidth = CGRectGetWidth(constraintRect);
     CGFloat constraintHeight = CGRectGetHeight(constraintRect);
     
@@ -113,7 +91,7 @@ static CGFloat const kMessageLabelFontSize = 14.0;
                 CGFloat imageViewWidth = imageWidth > imageMaxWidth ? imageMaxWidth : imageWidth;
                 CGFloat imageViewHeight = imageHeight > imageMaxHeight ? imageMaxHeight : imageHeight;
                 
-                _imageView.bounds = CGRectMake(0.0, 0.0, imageViewWidth, imageViewHeight);
+                _imageView.frame = CGRectMake(0.0, 0.0, imageViewWidth, imageViewHeight);
                 
                 [subviews addObject:_imageView];
             }
@@ -123,7 +101,7 @@ static CGFloat const kMessageLabelFontSize = 14.0;
             {
                 CGSize titleLabelSize = [_titleLabel.text sizeWithFont:_titleLabel.font constrainedToSize:constraintRect.size];
                 
-                _titleLabel.bounds = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
+                _titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
                 
                 [subviews addObject:_titleLabel];
             }
@@ -133,13 +111,13 @@ static CGFloat const kMessageLabelFontSize = 14.0;
             {
                 CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font constrainedToSize:constraintRect.size];
                 
-                _messageLabel.bounds = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
+                _messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
                 [subviews addObject:_messageLabel];
             }
             
             // Align subviews.
-            [self alignSubviewsVerticaly:subviews usingPadding:kPadding];
+            [self alignSubviewsVerticaly:subviews usingPadding:kVYStateViewPadding];
             
             break;
         }
@@ -155,16 +133,16 @@ static CGFloat const kMessageLabelFontSize = 14.0;
             // Set message label bounds.
             if (_messageLabel.superview != nil)
             {
-                CGFloat width = constraintWidth - CGRectGetWidth(_activityIndicatorView.bounds) - kPadding;
+                CGFloat width = constraintWidth - CGRectGetWidth(_activityIndicatorView.bounds) - kVYStateViewPadding;
                 CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font forWidth:width lineBreakMode:_messageLabel.lineBreakMode];
                 
-                _messageLabel.bounds = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
+                _messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
                 [subviews addObject:_messageLabel];
             }
             
             // Align subviews.
-            [self alignSubviewsHorizontaly:subviews usingPadding:kPadding / 2.0];
+            [self alignSubviewsHorizontaly:subviews usingPadding:kVYStateViewPadding / 2.0];
             
             break;
         }
@@ -187,7 +165,6 @@ static CGFloat const kMessageLabelFontSize = 14.0;
             if (_activityIndicatorView.superview != nil)
             {
                 [_activityIndicatorView removeFromSuperview];
-                
                 _activityIndicatorView = nil;
             }
             
@@ -205,7 +182,6 @@ static CGFloat const kMessageLabelFontSize = 14.0;
                 _activityIndicatorView.color = _textColor;
                 
                 [self addSubview:_activityIndicatorView];
-                
                 [_activityIndicatorView startAnimating];
             }
             
@@ -245,7 +221,6 @@ static CGFloat const kMessageLabelFontSize = 14.0;
         else if (_imageView.superview != nil)
         {
             [_imageView removeFromSuperview];
-            
             _imageView = nil;
         }
         
@@ -270,7 +245,7 @@ static CGFloat const kMessageLabelFontSize = 14.0;
                 _titleLabel.numberOfLines = 0;
                 _titleLabel.shadowColor = self.textShadowColor;
                 _titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-                _titleLabel.textAlignment = UITextAlignmentCenter;
+                _titleLabel.textAlignment = NSTextAlignmentCenter;
                 _titleLabel.textColor = self.textColor;
                 _titleLabel.font = _titleLabelFont;
                 
@@ -282,7 +257,6 @@ static CGFloat const kMessageLabelFontSize = 14.0;
         else if (_titleLabel.superview != nil)
         {
             [_titleLabel removeFromSuperview];
-            
             _titleLabel = nil;
         }
         
@@ -307,7 +281,7 @@ static CGFloat const kMessageLabelFontSize = 14.0;
                 _messageLabel.numberOfLines = 0;
                 _messageLabel.shadowColor = self.textShadowColor;
                 _messageLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-                _messageLabel.textAlignment = UITextAlignmentCenter;
+                _messageLabel.textAlignment = NSTextAlignmentCenter;
                 _messageLabel.textColor = self.textColor;
                 _messageLabel.font = _messageLabelFont;
                 
@@ -319,7 +293,6 @@ static CGFloat const kMessageLabelFontSize = 14.0;
         else if (_messageLabel.superview != nil)
         {
             [_messageLabel removeFromSuperview];
-            
             _messageLabel = nil;
         }
         
@@ -361,11 +334,11 @@ static CGFloat const kMessageLabelFontSize = 14.0;
     self.backgroundColor = [UIColor clearColor];
     
     // Set default values.
-    _titleLabelFont = [UIFont boldSystemFontOfSize:kTitleLabelFontSize];
-    _messageLabelFont = [UIFont boldSystemFontOfSize:kMessageLabelFontSize];
+    _titleLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewTitleLabelFontSize];
+    _messageLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewMessageLabelFontSize];
     
-    self.textColor = [UIColor whiteColor];
-    self.textShadowColor = [UIColor blackColor];
+    _textColor = [UIColor whiteColor];
+    _textShadowColor = [UIColor blackColor];
 }
 
 - (void)alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding

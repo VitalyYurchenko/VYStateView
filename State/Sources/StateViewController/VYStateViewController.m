@@ -63,8 +63,8 @@
             self.stateView.mode = VYStateViewModeStatic;
             self.stateView.textShadowColor = [UIColor blackColor];
             self.stateView.image = [UIImage imageNamed:@"STATE.png"];
-            self.stateView.title = @"Title";
-            self.stateView.message = @"Message.";
+            self.stateView.title = @"Network Error";
+            self.stateView.message = @"Please check your network connection and try again later.";
             
             break;
         }

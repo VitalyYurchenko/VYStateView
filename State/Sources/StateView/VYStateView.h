@@ -11,24 +11,23 @@
 
 // ********************************************************************************************************************************************************** //
 
-enum
+typedef NS_ENUM(NSUInteger, VYStateViewMode)
 {
     VYStateViewModeStatic = 0,
     VYStateViewModeActivity
 };
-typedef NSUInteger VYStateViewMode;
 
 // ********************************************************************************************************************************************************** //
 
 @interface VYStateView : UIView
 
-@property (nonatomic, assign) VYStateViewMode mode; // Default to VYStateViewModeStatic.
+@property (nonatomic) VYStateViewMode mode; // Default is VYStateViewModeStatic.
 
 @property (nonatomic, strong) UIImage *image; // Currently disabled in VYStateViewModeActivity mode.
 @property (nonatomic, copy) NSString *title; // Currently disabled in VYStateViewModeActivity mode.
 @property (nonatomic, copy) NSString *message;
 
-@property (nonatomic, strong) UIColor *textColor; // Default to whiteColor.
-@property (nonatomic, strong) UIColor *textShadowColor; // Default to blackColor.
+@property (nonatomic, strong) UIColor *textColor; // Default is whiteColor.
+@property (nonatomic, strong) UIColor *textShadowColor; // Default is blackColor.
 
 @end
