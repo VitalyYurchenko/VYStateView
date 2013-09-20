@@ -1,35 +1,24 @@
 //
-//  StateTests.m
-//  StateTests
+//  VYStateViewController.h
+//  VYStateView
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
 //
 // ********************************************************************************************************************************************************** //
 
-#import "StateTests.h"
+#import <UIKit/UIKit.h>
 
 // ********************************************************************************************************************************************************** //
 
-@implementation StateTests
+@class VYStateView;
 
-- (void)setUp
-{
-    [super setUp];
-    
-    // Set-up code here.
-}
+// ********************************************************************************************************************************************************** //
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
+@interface VYStateViewController : UIViewController
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in StateTests");
-}
+@property (nonatomic, weak) IBOutlet VYStateView *stateView;
+
+- (IBAction)toggleStateViewModeAction:(id)sender;
 
 @end

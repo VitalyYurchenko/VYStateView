@@ -1,6 +1,6 @@
 //
 //  VYStateView.m
-//  State
+//  VYStateView
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
@@ -8,6 +8,15 @@
 // ********************************************************************************************************************************************************** //
 
 #import "VYStateView.h"
+
+// ********************************************************************************************************************************************************** //
+
+@interface NSString (VYStateViewAdditions)
+
+- (CGSize)vy_sizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode;
+- (CGSize)vy_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+
+@end
 
 // ********************************************************************************************************************************************************** //
 
@@ -39,7 +48,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     
     if (self != nil)
     {
-        [self initialSetup];
+        [self vy_initialSetup];
     }
     
     return self;
@@ -54,7 +63,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     
     if (self != nil)
     {
-        [self initialSetup];
+        [self vy_initialSetup];
     }
     
     return self;
@@ -99,7 +108,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             // Set title label bounds.
             if (_titleLabel.superview != nil)
             {
-                CGSize titleLabelSize = [_titleLabel.text sizeWithFont:_titleLabel.font constrainedToSize:constraintRect.size];
+                CGSize titleLabelSize = [_titleLabel.text vy_sizeWithFont:_titleLabel.font constrainedToSize:constraintRect.size];
                 
                 _titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
                 
@@ -109,7 +118,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             // Set message label bounds.
             if (_messageLabel.superview != nil)
             {
-                CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font constrainedToSize:constraintRect.size];
+                CGSize messageLabelSize = [_messageLabel.text vy_sizeWithFont:_messageLabel.font constrainedToSize:constraintRect.size];
                 
                 _messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
@@ -117,7 +126,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             }
             
             // Align subviews.
-            [self alignSubviewsVerticaly:subviews usingPadding:kVYStateViewPadding];
+            [self vy_alignSubviewsVerticaly:subviews usingPadding:kVYStateViewPadding];
             
             break;
         }
@@ -134,7 +143,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             if (_messageLabel.superview != nil)
             {
                 CGFloat width = constraintWidth - CGRectGetWidth(_activityIndicatorView.bounds) - kVYStateViewPadding;
-                CGSize messageLabelSize = [_messageLabel.text sizeWithFont:_messageLabel.font forWidth:width lineBreakMode:_messageLabel.lineBreakMode];
+                CGSize messageLabelSize = [_messageLabel.text vy_sizeWithFont:_messageLabel.font forWidth:width lineBreakMode:_messageLabel.lineBreakMode];
                 
                 _messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
                 
@@ -142,7 +151,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             }
             
             // Align subviews.
-            [self alignSubviewsHorizontaly:subviews usingPadding:kVYStateViewPadding / 2.0];
+            [self vy_alignSubviewsHorizontaly:subviews usingPadding:kVYStateViewPadding / 2.0];
             
             break;
         }
@@ -326,7 +335,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)initialSetup
+- (void)vy_initialSetup
 {
     // Set up view.
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -334,14 +343,22 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     self.backgroundColor = [UIColor clearColor];
     
     // Set default values.
-    _titleLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewTitleLabelFontSize];
-    _messageLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewMessageLabelFontSize];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+    {
+        _titleLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewTitleLabelFontSize];
+        _messageLabelFont = [UIFont boldSystemFontOfSize:kVYStateViewMessageLabelFontSize];
+    }
+    else
+    {
+        _titleLabelFont = [UIFont systemFontOfSize:kVYStateViewTitleLabelFontSize];
+        _messageLabelFont = [UIFont systemFontOfSize:kVYStateViewMessageLabelFontSize];
+    }
     
     _textColor = [UIColor whiteColor];
     _textShadowColor = [UIColor blackColor];
 }
 
-- (void)alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding
+- (void)vy_alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding
 {
     // Calculate subviews width.
     CGFloat contentWidth = -padding;
@@ -362,7 +379,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     }
 }
 
-- (void)alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding
+- (void)vy_alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding
 {
     // Calculate content height.
     CGFloat contentHeight = -padding;
@@ -381,6 +398,33 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
         
         verticalShift += CGRectGetHeight(subview.bounds) + padding;
     }
+}
+
+@end
+
+// ********************************************************************************************************************************************************** //
+
+#pragma mark -
+#pragma mark Extensions
+
+@implementation NSString (VYStateViewAdditions)
+
+- (CGSize)vy_sizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode
+{
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
+    return [self sizeWithAttributes:@{NSFontAttributeName: font}];
+#else
+    return [self sizeWithFont:font forWidth:width lineBreakMode:lineBreakMode];
+#endif
+}
+
+- (CGSize)vy_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
+    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context:nil].size;
+#else
+    return [self sizeWithFont:font constrainedToSize:size];
+#endif
 }
 
 @end

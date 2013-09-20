@@ -1,6 +1,6 @@
 //
-//  VYStateViewController.h
-//  State
+//  main.m
+//  VYStateView
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
@@ -9,16 +9,14 @@
 
 #import <UIKit/UIKit.h>
 
-// ********************************************************************************************************************************************************** //
-
-@class VYStateView;
+#import "VYAppDelegate.h"
 
 // ********************************************************************************************************************************************************** //
 
-@interface VYStateViewController : UIViewController
-
-@property (nonatomic, strong) IBOutlet VYStateView *stateView;
-
-- (IBAction)toggleStateViewModeAction:(id)sender;
-
-@end
+int main(int argc, char *argv[])
+{
+    @autoreleasepool
+    {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VYAppDelegate class]));
+    }
+}

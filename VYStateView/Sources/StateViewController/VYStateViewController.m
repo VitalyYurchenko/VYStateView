@@ -1,10 +1,11 @@
 //
 //  VYStateViewController.m
-//  State
+//  VYStateView
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
 //
+// ********************************************************************************************************************************************************** //
 
 #import "VYStateViewController.h"
 
@@ -14,8 +15,6 @@
 
 @implementation VYStateViewController
 
-@synthesize stateView = _stateView;
-
 #pragma mark -
 #pragma mark View Lifecycle
 
@@ -24,18 +23,6 @@
     [super viewDidLoad];
     
     [self toggleStateViewModeAction:self];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    
-    self.stateView = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
 }
 
 #pragma mark -
@@ -54,7 +41,7 @@
         {
             self.stateView.mode = VYStateViewModeActivity;
             self.stateView.textShadowColor = [UIColor clearColor];
-            self.stateView.message = @"Loading...";
+            self.stateView.message = @"Loading…";
             
             break;
         }
@@ -62,7 +49,7 @@
         {
             self.stateView.mode = VYStateViewModeStatic;
             self.stateView.textShadowColor = [UIColor blackColor];
-            self.stateView.image = [UIImage imageNamed:@"STATE.png"];
+            self.stateView.image = [UIImage imageNamed:@"STAR"];
             self.stateView.title = @"Network Error";
             self.stateView.message = @"Please check your network connection and try again later.";
             

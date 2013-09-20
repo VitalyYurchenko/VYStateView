@@ -1,0 +1,17 @@
+//
+//  VYStateView-Config.xcconfig
+//  VYStateView
+//
+//  Created by Vitaly Yurchenko on 20.09.13.
+//  Copyright (c) 2013 Vitaly Yurchenko. All rights reserved.
+//
+// ********************************************************************************************************************************************************** //
+
+// Packaging.
+INFOPLIST_FILE = VYStateView/VYStateView-Info.plist
+PRODUCT_NAME = $(TARGET_NAME)
+WRAPPER_EXTENSION = app
+
+// Compiler - Language.
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+GCC_PREFIX_HEADER = VYStateView/VYStateView-Prefix.pch

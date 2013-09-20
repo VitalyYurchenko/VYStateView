@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D883194317EC8D4000FCCF19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193017EC8D4000FCCF19 /* main.m */; };
+		D883194417EC8D4000FCCF19 /* STATE.png in Resources */ = {isa = PBXBuildFile; fileRef = D883193417EC8D4000FCCF19 /* STATE.png */; };
+		D883194517EC8D4000FCCF19 /* STATE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D883193517EC8D4000FCCF19 /* STATE@2x.png */; };
+		D883194617EC8D4000FCCF19 /* VYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193917EC8D4000FCCF19 /* VYAppDelegate.m */; };
+		D883194717EC8D4000FCCF19 /* VYStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193C17EC8D4000FCCF19 /* VYStateView.m */; };
+		D883194817EC8D4000FCCF19 /* VYStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193F17EC8D4000FCCF19 /* VYStateViewController.m */; };
+		D883194917EC8D4000FCCF19 /* VYStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D883194017EC8D4000FCCF19 /* VYStateViewController.xib */; };
+		D8D00D12153825BF000E4A7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D11153825BF000E4A7B /* UIKit.framework */; };
+		D8D00D14153825BF000E4A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D13153825BF000E4A7B /* Foundation.framework */; };
+		D8D00D16153825BF000E4A7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D15153825BF000E4A7B /* CoreGraphics.framework */; };
+		D8D00D2A153825BF000E4A7B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D29153825BF000E4A7B /* SenTestingKit.framework */; };
+		D8D00D2B153825BF000E4A7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D11153825BF000E4A7B /* UIKit.framework */; };
+		D8D00D2C153825BF000E4A7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D13153825BF000E4A7B /* Foundation.framework */; };
+		D8D00D37153825BF000E4A7B /* StateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D00D36153825BF000E4A7B /* StateTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8D00D2D153825BF000E4A7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8D00D04153825BF000E4A7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8D00D0C153825BF000E4A7B;
+			remoteInfo = State;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D883193017EC8D4000FCCF19 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D883193417EC8D4000FCCF19 /* STATE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STATE.png; sourceTree = "<group>"; };
+		D883193517EC8D4000FCCF19 /* STATE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "STATE@2x.png"; sourceTree = "<group>"; };
+		D883193817EC8D4000FCCF19 /* VYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYAppDelegate.h; sourceTree = "<group>"; };
+		D883193917EC8D4000FCCF19 /* VYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYAppDelegate.m; sourceTree = "<group>"; };
+		D883193B17EC8D4000FCCF19 /* VYStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYStateView.h; sourceTree = "<group>"; };
+		D883193C17EC8D4000FCCF19 /* VYStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYStateView.m; sourceTree = "<group>"; };
+		D883193E17EC8D4000FCCF19 /* VYStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYStateViewController.h; sourceTree = "<group>"; };
+		D883193F17EC8D4000FCCF19 /* VYStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYStateViewController.m; sourceTree = "<group>"; };
+		D883194017EC8D4000FCCF19 /* VYStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VYStateViewController.xib; sourceTree = "<group>"; };
+		D883194117EC8D4000FCCF19 /* VYStateView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VYStateView-Info.plist"; sourceTree = "<group>"; };
+		D883194217EC8D4000FCCF19 /* VYStateView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VYStateView-Prefix.pch"; sourceTree = "<group>"; };
+		D883194C17EC8EDD00FCCF19 /* VYConfig-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYConfig-Common.xcconfig"; sourceTree = "<group>"; };
+		D883194D17EC95F400FCCF19 /* VYConfig-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYConfig-Release.xcconfig"; sourceTree = "<group>"; };
+		D883194E17EC960D00FCCF19 /* VYConfig-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYConfig-Debug.xcconfig"; sourceTree = "<group>"; };
+		D883194F17EC965A00FCCF19 /* VYStateView-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYStateView-Config.xcconfig"; sourceTree = "<group>"; };
+		D883195017EC98C500FCCF19 /* VYStateViewTests-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYStateViewTests-Config.xcconfig"; sourceTree = "<group>"; };
+		D8D00D0D153825BF000E4A7B /* VYStateView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VYStateView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D00D11153825BF000E4A7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D8D00D13153825BF000E4A7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D8D00D15153825BF000E4A7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D8D00D28153825BF000E4A7B /* VYStateViewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VYStateViewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D00D29153825BF000E4A7B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D8D00D31153825BF000E4A7B /* VYStateViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VYStateViewTests-Info.plist"; sourceTree = "<group>"; };
+		D8D00D35153825BF000E4A7B /* StateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateTests.h; sourceTree = "<group>"; };
+		D8D00D36153825BF000E4A7B /* StateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StateTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8D00D0A153825BF000E4A7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D00D12153825BF000E4A7B /* UIKit.framework in Frameworks */,
+				D8D00D14153825BF000E4A7B /* Foundation.framework in Frameworks */,
+				D8D00D16153825BF000E4A7B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D00D24153825BF000E4A7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D00D2A153825BF000E4A7B /* SenTestingKit.framework in Frameworks */,
+				D8D00D2B153825BF000E4A7B /* UIKit.framework in Frameworks */,
+				D8D00D2C153825BF000E4A7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D883192E17EC8D4000FCCF19 /* VYStateView */ = {
+			isa = PBXGroup;
+			children = (
+				D883192F17EC8D4000FCCF19 /* Configurations */,
+				D883193117EC8D4000FCCF19 /* Resources */,
+				D883193617EC8D4000FCCF19 /* Sources */,
+				D883194B17EC8D5A00FCCF19 /* Supporting Files */,
+			);
+			path = VYStateView;
+			sourceTree = "<group>";
+		};
+		D883192F17EC8D4000FCCF19 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				D883194C17EC8EDD00FCCF19 /* VYConfig-Common.xcconfig */,
+				D883194E17EC960D00FCCF19 /* VYConfig-Debug.xcconfig */,
+				D883194D17EC95F400FCCF19 /* VYConfig-Release.xcconfig */,
+				D883194F17EC965A00FCCF19 /* VYStateView-Config.xcconfig */,
+				D883195017EC98C500FCCF19 /* VYStateViewTests-Config.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		D883193117EC8D4000FCCF19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D883193217EC8D4000FCCF19 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D883193217EC8D4000FCCF19 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D883193317EC8D4000FCCF19 /* State */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D883193317EC8D4000FCCF19 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				D883193417EC8D4000FCCF19 /* STATE.png */,
+				D883193517EC8D4000FCCF19 /* STATE@2x.png */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		D883193617EC8D4000FCCF19 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D883193717EC8D4000FCCF19 /* AppDelegate */,
+				D883193A17EC8D4000FCCF19 /* StateView */,
+				D883193D17EC8D4000FCCF19 /* StateViewController */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D883193717EC8D4000FCCF19 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D883193817EC8D4000FCCF19 /* VYAppDelegate.h */,
+				D883193917EC8D4000FCCF19 /* VYAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D883193A17EC8D4000FCCF19 /* StateView */ = {
+			isa = PBXGroup;
+			children = (
+				D883193B17EC8D4000FCCF19 /* VYStateView.h */,
+				D883193C17EC8D4000FCCF19 /* VYStateView.m */,
+			);
+			path = StateView;
+			sourceTree = "<group>";
+		};
+		D883193D17EC8D4000FCCF19 /* StateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D883193E17EC8D4000FCCF19 /* VYStateViewController.h */,
+				D883193F17EC8D4000FCCF19 /* VYStateViewController.m */,
+				D883194017EC8D4000FCCF19 /* VYStateViewController.xib */,
+			);
+			path = StateViewController;
+			sourceTree = "<group>";
+		};
+		D883194B17EC8D5A00FCCF19 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D883193017EC8D4000FCCF19 /* main.m */,
+				D883194117EC8D4000FCCF19 /* VYStateView-Info.plist */,
+				D883194217EC8D4000FCCF19 /* VYStateView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8D00D02153825BF000E4A7B = {
+			isa = PBXGroup;
+			children = (
+				D883192E17EC8D4000FCCF19 /* VYStateView */,
+				D8D00D2F153825BF000E4A7B /* StateTests */,
+				D8D00D10153825BF000E4A7B /* Frameworks */,
+				D8D00D0E153825BF000E4A7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8D00D0E153825BF000E4A7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D0D153825BF000E4A7B /* VYStateView.app */,
+				D8D00D28153825BF000E4A7B /* VYStateViewTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8D00D10153825BF000E4A7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D11153825BF000E4A7B /* UIKit.framework */,
+				D8D00D13153825BF000E4A7B /* Foundation.framework */,
+				D8D00D15153825BF000E4A7B /* CoreGraphics.framework */,
+				D8D00D29153825BF000E4A7B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8D00D2F153825BF000E4A7B /* StateTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D35153825BF000E4A7B /* StateTests.h */,
+				D8D00D36153825BF000E4A7B /* StateTests.m */,
+				D8D00D30153825BF000E4A7B /* Supporting Files */,
+			);
+			path = StateTests;
+			sourceTree = "<group>";
+		};
+		D8D00D30153825BF000E4A7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8D00D31153825BF000E4A7B /* VYStateViewTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8D00D0C153825BF000E4A7B /* VYStateView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8D00D3A153825BF000E4A7B /* Build configuration list for PBXNativeTarget "VYStateView" */;
+			buildPhases = (
+				D8D00D09153825BF000E4A7B /* Sources */,
+				D8D00D0A153825BF000E4A7B /* Frameworks */,
+				D8D00D0B153825BF000E4A7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VYStateView;
+			productName = State;
+			productReference = D8D00D0D153825BF000E4A7B /* VYStateView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8D00D27153825BF000E4A7B /* VYStateViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8D00D3D153825BF000E4A7B /* Build configuration list for PBXNativeTarget "VYStateViewTests" */;
+			buildPhases = (
+				D8D00D23153825BF000E4A7B /* Sources */,
+				D8D00D24153825BF000E4A7B /* Frameworks */,
+				D8D00D25153825BF000E4A7B /* Resources */,
+				D8D00D26153825BF000E4A7B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8D00D2E153825BF000E4A7B /* PBXTargetDependency */,
+			);
+			name = VYStateViewTests;
+			productName = StateTests;
+			productReference = D8D00D28153825BF000E4A7B /* VYStateViewTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8D00D04153825BF000E4A7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VY;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Vitaly Yurchenko";
+			};
+			buildConfigurationList = D8D00D07153825BF000E4A7B /* Build configuration list for PBXProject "VYStateView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D8D00D02153825BF000E4A7B;
+			productRefGroup = D8D00D0E153825BF000E4A7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8D00D0C153825BF000E4A7B /* VYStateView */,
+				D8D00D27153825BF000E4A7B /* VYStateViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8D00D0B153825BF000E4A7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D883194417EC8D4000FCCF19 /* STATE.png in Resources */,
+				D883194917EC8D4000FCCF19 /* VYStateViewController.xib in Resources */,
+				D883194517EC8D4000FCCF19 /* STATE@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D00D25153825BF000E4A7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8D00D26153825BF000E4A7B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8D00D09153825BF000E4A7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D883194317EC8D4000FCCF19 /* main.m in Sources */,
+				D883194817EC8D4000FCCF19 /* VYStateViewController.m in Sources */,
+				D883194617EC8D4000FCCF19 /* VYAppDelegate.m in Sources */,
+				D883194717EC8D4000FCCF19 /* VYStateView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8D00D23153825BF000E4A7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D00D37153825BF000E4A7B /* StateTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8D00D2E153825BF000E4A7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8D00D0C153825BF000E4A7B /* VYStateView */;
+			targetProxy = D8D00D2D153825BF000E4A7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D8D00D38153825BF000E4A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D883194E17EC960D00FCCF19 /* VYConfig-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		D8D00D39153825BF000E4A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D883194D17EC95F400FCCF19 /* VYConfig-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D8D00D3B153825BF000E4A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D883194F17EC965A00FCCF19 /* VYStateView-Config.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		D8D00D3C153825BF000E4A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D883194F17EC965A00FCCF19 /* VYStateView-Config.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D8D00D3E153825BF000E4A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "State/State-Prefix.pch";
+				PRODUCT_NAME = VYStateViewTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D8D00D3F153825BF000E4A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "State/State-Prefix.pch";
+				PRODUCT_NAME = VYStateViewTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8D00D07153825BF000E4A7B /* Build configuration list for PBXProject "VYStateView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8D00D38153825BF000E4A7B /* Debug */,
+				D8D00D39153825BF000E4A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8D00D3A153825BF000E4A7B /* Build configuration list for PBXNativeTarget "VYStateView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8D00D3B153825BF000E4A7B /* Debug */,
+				D8D00D3C153825BF000E4A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8D00D3D153825BF000E4A7B /* Build configuration list for PBXNativeTarget "VYStateViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8D00D3E153825BF000E4A7B /* Debug */,
+				D8D00D3F153825BF000E4A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8D00D04153825BF000E4A7B /* Project object */;
+}

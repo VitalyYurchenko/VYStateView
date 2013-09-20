@@ -1,22 +1,35 @@
 //
-//  main.m
-//  State
+//  VYStateViewTests.m
+//  VYStateViewTests
 //
 //  Created by Vitaly Yurchenko on 13.04.12.
 //  Copyright (c) 2012 Vitaly Yurchenko. All rights reserved.
 //
 // ********************************************************************************************************************************************************** //
 
-#import <UIKit/UIKit.h>
-
-#import "VYAppDelegate.h"
+#import "VYStateViewTests.h"
 
 // ********************************************************************************************************************************************************** //
 
-int main(int argc, char *argv[])
+@implementation VYStateViewTests
+
+- (void)setUp
 {
-    @autoreleasepool
-    {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VYAppDelegate class]));
-    }
+    [super setUp];
+    
+    // Set-up code here.
 }
+
+- (void)tearDown
+{
+    // Tear-down code here.
+    
+    [super tearDown];
+}
+
+- (void)testExample
+{
+    XCTFail(@"Unit tests are not implemented yet in StateTests");
+}
+
+@end

@@ -1,0 +1,27 @@
+//
+//  VYConfig-Debug.xcconfig
+//  VYStateView
+//
+//  Created by Vitaly Yurchenko on 20.09.13.
+//  Copyright (c) 2013 Vitaly Yurchenko. All rights reserved.
+//
+// ********************************************************************************************************************************************************** //
+
+#include "VYConfig-Common.xcconfig"
+
+// ********************************************************************************************************************************************************** //
+
+// Architectures.
+ONLY_ACTIVE_ARCH = YES
+
+// Code Signing.
+CODE_SIGN_IDENTITY = iPhone Developer
+
+// Deployment.
+COPY_PHASE_STRIP = NO
+
+// Compiler - Code Generation.
+GCC_OPTIMIZATION_LEVEL = 0
+
+// Compiler - Preprocessing.
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
