@@ -41,6 +41,7 @@
         {
             self.stateView.mode = VYStateViewModeActivity;
             self.stateView.textShadowColor = [UIColor clearColor];
+            self.stateView.title = nil;
             self.stateView.message = @"Loading…";
             
             break;
@@ -58,6 +59,14 @@
         default:
             break;
     }
+}
+
+#pragma mark -
+#pragma mark <UIBarPositioningDelegate>
+
+- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
 }
 
 @end

@@ -15,7 +15,7 @@
 
 // ********************************************************************************************************************************************************** //
 
-@interface VYStateViewController : UIViewController
+@interface VYStateViewController : UIViewController <UINavigationBarDelegate>
 
 @property (nonatomic, weak) IBOutlet VYStateView *stateView;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84B78AC17F5E2D200D5F34D /* Application.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84B78AB17F5E2D200D5F34D /* Application.xcassets */; };
 		D883194317EC8D4000FCCF19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193017EC8D4000FCCF19 /* main.m */; };
 		D883194617EC8D4000FCCF19 /* VYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193917EC8D4000FCCF19 /* VYAppDelegate.m */; };
 		D883194717EC8D4000FCCF19 /* VYStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193C17EC8D4000FCCF19 /* VYStateView.m */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D84B78AB17F5E2D200D5F34D /* Application.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Application.xcassets; sourceTree = "<group>"; };
 		D883193017EC8D4000FCCF19 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D883193817EC8D4000FCCF19 /* VYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYAppDelegate.h; sourceTree = "<group>"; };
 		D883193917EC8D4000FCCF19 /* VYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYAppDelegate.m; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		D883195817EC9AB800FCCF19 /* AssetCatalogs */ = {
 			isa = PBXGroup;
 			children = (
+				D84B78AB17F5E2D200D5F34D /* Application.xcassets */,
 				D883195917EC9AD700FCCF19 /* VYStateView.xcassets */,
 			);
 			path = AssetCatalogs;
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84B78AC17F5E2D200D5F34D /* Application.xcassets in Resources */,
 				D883194917EC8D4000FCCF19 /* VYStateViewController.xib in Resources */,
 				D883195A17EC9AD700FCCF19 /* VYStateView.xcassets in Resources */,
 			);
@@ -380,7 +384,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D883195017EC98C500FCCF19 /* VYStateViewTests-Config.xcconfig */;
 			buildSettings = {
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -388,7 +391,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D883195017EC98C500FCCF19 /* VYStateViewTests-Config.xcconfig */;
 			buildSettings = {
-				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
