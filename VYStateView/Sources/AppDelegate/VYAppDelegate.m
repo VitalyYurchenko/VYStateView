@@ -9,8 +9,6 @@
 
 #import "VYAppDelegate.h"
 
-#import "VYStateViewController.h"
-
 // ********************************************************************************************************************************************************** //
 
 @implementation VYAppDelegate
@@ -20,13 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    VYStateViewController *rootViewController = [[VYStateViewController alloc] initWithNibName:@"VYStateViewController" bundle:nil];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = rootViewController;
-    
-    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 

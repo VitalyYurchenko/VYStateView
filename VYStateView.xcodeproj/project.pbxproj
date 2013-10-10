@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D84B78AC17F5E2D200D5F34D /* Application.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84B78AB17F5E2D200D5F34D /* Application.xcassets */; };
+		D850ADE71806A16000A83764 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D850ADE61806A16000A83764 /* Main.storyboard */; };
 		D883194317EC8D4000FCCF19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193017EC8D4000FCCF19 /* main.m */; };
 		D883194617EC8D4000FCCF19 /* VYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193917EC8D4000FCCF19 /* VYAppDelegate.m */; };
 		D883194717EC8D4000FCCF19 /* VYStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193C17EC8D4000FCCF19 /* VYStateView.m */; };
 		D883194817EC8D4000FCCF19 /* VYStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D883193F17EC8D4000FCCF19 /* VYStateViewController.m */; };
-		D883194917EC8D4000FCCF19 /* VYStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D883194017EC8D4000FCCF19 /* VYStateViewController.xib */; };
 		D883195517EC99A900FCCF19 /* VYStateViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D883195317EC99A900FCCF19 /* VYStateViewTests.m */; };
 		D883195A17EC9AD700FCCF19 /* VYStateView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D883195917EC9AD700FCCF19 /* VYStateView.xcassets */; };
 		D8D00D12153825BF000E4A7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D00D11153825BF000E4A7B /* UIKit.framework */; };
@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D84B78AB17F5E2D200D5F34D /* Application.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Application.xcassets; sourceTree = "<group>"; };
+		D850ADE61806A16000A83764 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D883193017EC8D4000FCCF19 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D883193817EC8D4000FCCF19 /* VYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYAppDelegate.h; sourceTree = "<group>"; };
 		D883193917EC8D4000FCCF19 /* VYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYAppDelegate.m; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		D883193C17EC8D4000FCCF19 /* VYStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYStateView.m; sourceTree = "<group>"; };
 		D883193E17EC8D4000FCCF19 /* VYStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYStateViewController.h; sourceTree = "<group>"; };
 		D883193F17EC8D4000FCCF19 /* VYStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYStateViewController.m; sourceTree = "<group>"; };
-		D883194017EC8D4000FCCF19 /* VYStateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VYStateViewController.xib; sourceTree = "<group>"; };
 		D883194117EC8D4000FCCF19 /* VYStateView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VYStateView-Info.plist"; sourceTree = "<group>"; };
 		D883194217EC8D4000FCCF19 /* VYStateView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VYStateView-Prefix.pch"; sourceTree = "<group>"; };
 		D883194C17EC8EDD00FCCF19 /* VYConfig-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYConfig-Common.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D850AD691806A0DB00A83764 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D850ADE61806A16000A83764 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		D883192E17EC8D4000FCCF19 /* VYStateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D883195817EC9AB800FCCF19 /* AssetCatalogs */,
+				D850AD691806A0DB00A83764 /* Storyboards */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -147,7 +156,6 @@
 			children = (
 				D883193E17EC8D4000FCCF19 /* VYStateViewController.h */,
 				D883193F17EC8D4000FCCF19 /* VYStateViewController.m */,
-				D883194017EC8D4000FCCF19 /* VYStateViewController.xib */,
 			);
 			path = StateViewController;
 			sourceTree = "<group>";
@@ -291,8 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84B78AC17F5E2D200D5F34D /* Application.xcassets in Resources */,
-				D883194917EC8D4000FCCF19 /* VYStateViewController.xib in Resources */,
 				D883195A17EC9AD700FCCF19 /* VYStateView.xcassets in Resources */,
+				D850ADE71806A16000A83764 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

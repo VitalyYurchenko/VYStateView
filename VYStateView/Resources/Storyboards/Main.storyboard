@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YEw-gz-yi4">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--State View Controller - VYStateView-->
+        <scene sceneID="Pwx-Uq-9ot">
+            <objects>
+                <viewController storyboardIdentifier="VYStateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YEw-gz-yi4" customClass="VYStateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vk3-5e-zLW"/>
+                        <viewControllerLayoutGuide type="bottom" id="KdR-Dc-mTH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F3W-Pf-vXB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yku-rR-Ehk" customClass="VYStateView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yku-rR-Ehk" secondAttribute="trailing" id="ExQ-VU-fkC"/>
+                            <constraint firstItem="KdR-Dc-mTH" firstAttribute="top" secondItem="yku-rR-Ehk" secondAttribute="bottom" id="KL5-2C-YmJ"/>
+                            <constraint firstItem="yku-rR-Ehk" firstAttribute="top" secondItem="vk3-5e-zLW" secondAttribute="bottom" id="R7n-3A-r7e"/>
+                            <constraint firstItem="yku-rR-Ehk" firstAttribute="leading" secondItem="F3W-Pf-vXB" secondAttribute="leading" id="te9-o4-cZH"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dDc-CQ-7as" appends="YES" id="e3h-da-Enw"/>
+                        </connections>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="VYStateView" id="770-Rc-Dbo"/>
+                    <connections>
+                        <outlet property="stateView" destination="yku-rR-Ehk" id="37a-8C-gW2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTa-cO-pFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dDc-CQ-7as">
+                    <connections>
+                        <action selector="toggleStateViewModeAction:" destination="YEw-gz-yi4" id="XVO-Yq-rLg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="535" y="180"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

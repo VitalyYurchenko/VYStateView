@@ -40,19 +40,30 @@
         case VYStateViewModeStatic:
         {
             self.stateView.mode = VYStateViewModeActivity;
-            self.stateView.textShadowColor = [UIColor clearColor];
-            self.stateView.title = nil;
-            self.stateView.message = @"Loading…";
+            self.stateView.messageFont = nil;
+            self.stateView.image = nil;
+            self.stateView.attributedTitle = nil;
+            self.stateView.attributedMessage = [[NSAttributedString alloc] initWithString:@"Loading…"];
+            self.stateView.textColor = [UIColor vy_darkGrayColor];
             
             break;
         }
         case VYStateViewModeActivity:
         {
             self.stateView.mode = VYStateViewModeStatic;
-            self.stateView.textShadowColor = [UIColor blackColor];
+            self.stateView.messageFont = nil;
             self.stateView.image = [UIImage imageNamed:@"STAR"];
-            self.stateView.title = @"Network Error";
-            self.stateView.message = @"Please check your network connection and try again later.";
+            self.stateView.attributedTitle = [[NSAttributedString alloc] initWithString:@"No Stars"];
+            
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = 2.0;
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            
+            NSDictionary *attributes = @{NSFontAttributeName: self.stateView.messageFont, NSParagraphStyleAttributeName: paragraphStyle};
+            
+            self.stateView.attributedMessage = [[NSAttributedString alloc] initWithString:@"Stars let you build as many your own galaxies as possible."
+                attributes:attributes];
+            self.stateView.textColor = [UIColor vy_lightGrayColor];
             
             break;
         }

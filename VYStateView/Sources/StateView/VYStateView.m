@@ -11,27 +11,11 @@
 
 // ********************************************************************************************************************************************************** //
 
-static const CGFloat kVYStateViewMargin = 20.0;
-static const CGFloat kVYStateViewPadding = 10.0;
-
-static const CGFloat kVYStateViewTitleLabelFontSize = 20.0;
-static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
-
-// ********************************************************************************************************************************************************** //
-
-@interface NSString (VYStateViewAdditions)
-
-- (CGSize)vy_sizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode;
-- (CGSize)vy_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
-
-@end
-
-// ********************************************************************************************************************************************************** //
-
 @interface VYStateView ()
 {
     CGFloat _vy_margins;
-    CGFloat _vy_padding;
+    CGFloat _vy_horizontalPadding;
+    CGFloat _vy_verticalPadding;
 }
 
 @property (nonatomic, strong) UIActivityIndicatorView *vy_activityIndicatorView;
@@ -40,6 +24,20 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 @property (nonatomic, strong) UILabel *vy_messageLabel;
 
 - (void)vy_initialSetup;
+
+- (UIFont *)vy_defaultTitleLabelFont;
+- (UIFont *)vy_defaultMessageLabelFont;
+- (UIColor *)vy_defaultTextColor;
+- (UIColor *)vy_defaultTextShadowColor;
+- (CGFloat)vy_defaultMargins;
+- (CGFloat)vy_defaultHorizontalPadding;
+- (CGFloat)vy_defaultVerticalPadding;
+
+- (UIActivityIndicatorView *)vy_newActivityIndicatorView;
+- (UIImageView *)vy_newImageView;
+- (UILabel *)vy_newTitleLabel;
+- (UILabel *)vy_newMessageLabel;
+
 - (void)vy_alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
 - (void)vy_alignSubviewsVerticaly:(NSArray *)subviews usingPadding:(CGFloat)padding;
 
@@ -84,9 +82,9 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 
 - (void)layoutSubviews
 {
-    CGRect constraintRect = CGRectInset(self.bounds, self.margins, self.margins);
-    CGFloat constraintWidth = CGRectGetWidth(constraintRect);
-    CGFloat constraintHeight = CGRectGetHeight(constraintRect);
+    const CGRect constraintRect = CGRectInset(self.bounds, self.margins, self.margins);
+    const CGFloat constraintWidth = CGRectGetWidth(constraintRect);
+    const CGFloat constraintHeight = CGRectGetHeight(constraintRect);
     
     switch (self.mode)
     {
@@ -107,32 +105,28 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
                 CGFloat imageViewHeight = imageHeight > imageMaxHeight ? imageMaxHeight : imageHeight;
                 
                 self.vy_imageView.frame = CGRectMake(0.0, 0.0, imageViewWidth, imageViewHeight);
-                
                 [subviews addObject:self.vy_imageView];
             }
             
             if (self.vy_titleLabel.superview != nil)
             {
                 // Set title label bounds.
-                CGSize titleLabelSize = [self.vy_titleLabel.text vy_sizeWithFont:self.vy_titleLabel.font constrainedToSize:constraintRect.size];
+                CGSize titleLabelSize = [self.vy_titleLabel sizeThatFits:constraintRect.size];
                 
                 self.vy_titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
-                
                 [subviews addObject:self.vy_titleLabel];
             }
             
             if (self.vy_messageLabel.superview != nil)
             {
-                // Set message label bounds.
-                CGSize messageLabelSize = [self.vy_messageLabel.text vy_sizeWithFont:self.vy_messageLabel.font constrainedToSize:constraintRect.size];
+                CGSize messageLabelSize = [self.vy_messageLabel sizeThatFits:constraintRect.size];
                 
                 self.vy_messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
-                
                 [subviews addObject:self.vy_messageLabel];
             }
             
             // Align subviews.
-            [self vy_alignSubviewsVerticaly:subviews usingPadding:self.padding];
+            [self vy_alignSubviewsVerticaly:subviews usingPadding:self.verticalPadding];
             
             break;
         }
@@ -148,28 +142,24 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
             if (self.vy_titleLabel.superview != nil)
             {
                 // Set title label bounds.
-                CGFloat width = constraintWidth - CGRectGetWidth(self.vy_activityIndicatorView.bounds) - self.padding;
-                CGSize titleLabelSize = [self.vy_titleLabel.text vy_sizeWithFont:self.vy_titleLabel.font
-                    forWidth:width lineBreakMode:self.vy_titleLabel.lineBreakMode];
+                CGFloat newConstraintWidth = constraintWidth - CGRectGetWidth(self.vy_activityIndicatorView.bounds) - self.horizontalPadding;
+                CGSize titleLabelSize = [self.vy_titleLabel sizeThatFits:CGSizeMake(newConstraintWidth, constraintHeight)];
                 
                 self.vy_titleLabel.frame = CGRectMake(0.0, 0.0, titleLabelSize.width, titleLabelSize.height);
-                
                 [subviews addObject:self.vy_titleLabel];
             }
             else if (self.vy_messageLabel.superview != nil)
             {
                 // Set message label bounds.
-                CGFloat width = constraintWidth - CGRectGetWidth(self.vy_activityIndicatorView.bounds) - self.padding;
-                CGSize messageLabelSize = [self.vy_messageLabel.text vy_sizeWithFont:self.vy_messageLabel.font
-                    forWidth:width lineBreakMode:self.vy_messageLabel.lineBreakMode];
+                CGFloat newConstraintWidth = constraintWidth - CGRectGetWidth(self.vy_activityIndicatorView.bounds) - self.horizontalPadding;
+                CGSize messageLabelSize = [self.vy_messageLabel sizeThatFits:CGSizeMake(newConstraintWidth, constraintHeight)];
                 
                 self.vy_messageLabel.frame = CGRectMake(0.0, 0.0, messageLabelSize.width, messageLabelSize.height);
-                
                 [subviews addObject:self.vy_messageLabel];
             }
             
             // Align subviews.
-            [self vy_alignSubviewsHorizontaly:subviews usingPadding:self.padding / 2.0];
+            [self vy_alignSubviewsHorizontaly:subviews usingPadding:self.horizontalPadding];
             
             break;
         }
@@ -205,10 +195,7 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
         {
             if (self.vy_activityIndicatorView == nil)
             {
-                self.vy_activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-                self.vy_activityIndicatorView.hidesWhenStopped = NO;
-                self.vy_activityIndicatorView.color = _textColor;
-                
+                self.vy_activityIndicatorView = [self vy_newActivityIndicatorView];
                 [self addSubview:self.vy_activityIndicatorView];
             }
             
@@ -227,115 +214,145 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     [self setNeedsLayout];
 }
 
+- (UIImage *)image
+{
+    return self.vy_imageView.image;
+}
+
 - (void)setImage:(UIImage *)image
 {
-    if (_image != image)
+    if (image != nil)
     {
-        _image = image;
-        
-        if (_image != nil)
+        if (self.vy_imageView == nil)
         {
-            if (self.vy_imageView == nil)
-            {
-                self.vy_imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-                self.vy_imageView.backgroundColor = [UIColor clearColor];
-                self.vy_imageView.opaque = NO;
-                self.vy_imageView.contentMode = UIViewContentModeScaleAspectFit;
-                
-                [self addSubview:self.vy_imageView];
-            }
-            
-            self.vy_imageView.image = _image;
-        }
-        else if (self.vy_imageView.superview != nil)
-        {
-            [self.vy_imageView removeFromSuperview];
-            self.vy_imageView = nil;
+            self.vy_imageView = [self vy_newImageView];
+            [self addSubview:self.vy_imageView];
         }
         
-        [self setNeedsLayout];
+        self.vy_imageView.image = image;
     }
+    else if (self.vy_imageView.superview != nil)
+    {
+        [self.vy_imageView removeFromSuperview];
+        self.vy_imageView = nil;
+    }
+    
+    [self setNeedsLayout];
+}
+
+- (NSString *)title
+{
+    return self.vy_titleLabel.text;
 }
 
 - (void)setTitle:(NSString *)title
 {
-    if (_title != title)
+    if (title != nil)
     {
-        _title = [title copy];
-        
-        if (_title != nil)
+        if (self.vy_titleLabel == nil)
         {
-            if (self.vy_titleLabel == nil)
-            {
-                self.vy_titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-                self.vy_titleLabel.backgroundColor = [UIColor clearColor];
-                self.vy_titleLabel.opaque = NO;
-                self.vy_titleLabel.font = self.titleFont;
-                self.vy_titleLabel.textColor = self.textColor;
-                self.vy_titleLabel.shadowColor = self.textShadowColor;
-                self.vy_titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-                self.vy_titleLabel.textAlignment = NSTextAlignmentCenter;
-                self.vy_titleLabel.numberOfLines = 0;
-                self.vy_titleLabel.adjustsFontSizeToFitWidth = NO;
-                
-                [self addSubview:self.vy_titleLabel];
-            }
-            
-            self.vy_titleLabel.text = _title;
-        }
-        else if (self.vy_titleLabel.superview != nil)
-        {
-            [self.vy_titleLabel removeFromSuperview];
-            self.vy_titleLabel = nil;
+            self.vy_titleLabel = [self vy_newTitleLabel];
+            [self addSubview:self.vy_titleLabel];
         }
         
-        [self setNeedsLayout];
+        self.vy_titleLabel.text = title;
     }
+    else if (self.vy_titleLabel.superview != nil)
+    {
+        [self.vy_titleLabel removeFromSuperview];
+        self.vy_titleLabel = nil;
+    }
+    
+    [self setNeedsLayout];
+}
+
+- (NSString *)message
+{
+    return self.vy_messageLabel.text;
 }
 
 - (void)setMessage:(NSString *)message
 {
-    if (_message != message)
+    if (message != nil)
     {
-        _message = [message copy];
-        
-        if (_message != nil)
+        if (self.vy_messageLabel == nil)
         {
-            if (self.vy_messageLabel == nil)
-            {
-                self.vy_messageLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-                self.vy_messageLabel.backgroundColor = [UIColor clearColor];
-                self.vy_messageLabel.opaque = NO;
-                self.vy_messageLabel.font = self.messageFont;
-                self.vy_messageLabel.textColor = self.textColor;
-                self.vy_messageLabel.shadowColor = self.textShadowColor;
-                self.vy_messageLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-                self.vy_messageLabel.textAlignment = NSTextAlignmentCenter;
-                self.vy_messageLabel.numberOfLines = 0;
-                self.vy_messageLabel.adjustsFontSizeToFitWidth = NO;
-                
-                [self addSubview:self.vy_messageLabel];
-            }
-            
-            self.vy_messageLabel.text = _message;
-        }
-        else if (self.vy_messageLabel.superview != nil)
-        {
-            [self.vy_messageLabel removeFromSuperview];
-            self.vy_messageLabel = nil;
+            self.vy_messageLabel = [self vy_newMessageLabel];
+            [self addSubview:self.vy_messageLabel];
         }
         
-        [self setNeedsLayout];
+        self.vy_messageLabel.text = message;
     }
+    else if (self.vy_messageLabel.superview != nil)
+    {
+        [self.vy_messageLabel removeFromSuperview];
+        self.vy_messageLabel = nil;
+    }
+    
+    [self setNeedsLayout];
+}
+
+- (NSAttributedString *)attributedTitle
+{
+    return self.vy_titleLabel.attributedText;
+}
+
+- (void)setAttributedTitle:(NSAttributedString *)attributedTitle
+{
+    if (attributedTitle != nil)
+    {
+        if (self.vy_titleLabel == nil)
+        {
+            self.vy_titleLabel = [self vy_newTitleLabel];
+            [self addSubview:self.vy_titleLabel];
+        }
+        
+        self.vy_titleLabel.attributedText = attributedTitle;
+    }
+    else if (self.vy_titleLabel.superview != nil)
+    {
+        [self.vy_titleLabel removeFromSuperview];
+        self.vy_titleLabel = nil;
+    }
+    
+    [self setNeedsLayout];
+}
+
+- (NSAttributedString *)attributedMessage
+{
+    return self.vy_messageLabel.attributedText;
+}
+
+- (void)setAttributedMessage:(NSAttributedString *)attributedMessage
+{
+    if (attributedMessage != nil)
+    {
+        if (self.vy_messageLabel == nil)
+        {
+            self.vy_messageLabel = [self vy_newMessageLabel];
+            [self addSubview:self.vy_messageLabel];
+        }
+        
+        self.vy_messageLabel.attributedText = attributedMessage;
+    }
+    else if (self.vy_messageLabel.superview != nil)
+    {
+        [self.vy_messageLabel removeFromSuperview];
+        self.vy_messageLabel = nil;
+    }
+    
+    [self setNeedsLayout];
 }
 
 - (void)setTitleFont:(UIFont *)titleFont
 {
     if (_titleFont != titleFont)
     {
-        _titleFont = titleFont != nil ? titleFont : [UIFont boldSystemFontOfSize:kVYStateViewTitleLabelFontSize];
+        _titleFont = titleFont != nil ? titleFont : [self vy_defaultTitleLabelFont];
         
         self.vy_titleLabel.font = _titleFont;
+        
+        [self setNeedsLayout];
     }
 }
 
@@ -343,9 +360,11 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 {
     if (_messageFont != messageFont)
     {
-        _messageFont = messageFont != nil ? messageFont : [UIFont boldSystemFontOfSize:kVYStateViewMessageLabelFontSize];
+        _messageFont = messageFont != nil ? messageFont : [self vy_defaultMessageLabelFont];
         
         self.vy_messageLabel.font = _messageFont;
+        
+        [self setNeedsLayout];
     }
 }
 
@@ -373,27 +392,149 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 }
 
 #pragma mark -
-#pragma mark Private Methods
+#pragma mark Setup
 
 - (void)vy_initialSetup
 {
     // Set up view.
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
+    self.opaque = NO;
     
     // Set default values.
-    _titleFont = [UIFont boldSystemFontOfSize:kVYStateViewTitleLabelFontSize];
-    _messageFont = floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1
-        ? [UIFont boldSystemFontOfSize:kVYStateViewMessageLabelFontSize]
-        : [UIFont systemFontOfSize:kVYStateViewMessageLabelFontSize];
+    _titleFont = [self vy_defaultTitleLabelFont];
+    _messageFont = [self vy_defaultMessageLabelFont];
+    _textColor = [self vy_defaultTextColor];
+    _textShadowColor = [self vy_defaultTextShadowColor];
     
-    _textColor = [UIColor whiteColor];
-    _textShadowColor = [UIColor blackColor];
-    
-    _vy_margins = kVYStateViewMargin;
-    _vy_padding = kVYStateViewPadding;
+    _vy_margins = [self vy_defaultMargins];
+    _vy_horizontalPadding = [self vy_defaultHorizontalPadding];
+    _vy_verticalPadding = [self vy_defaultVerticalPadding];
 }
+
+#pragma mark -
+#pragma mark Default Values
+
+- (UIFont *)vy_defaultTitleLabelFont
+{
+    UIFont *font = floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1
+        ? [UIFont boldSystemFontOfSize:20.0]
+        : [UIFont systemFontOfSize:27];
+    
+    return font;
+}
+
+- (UIFont *)vy_defaultMessageLabelFont
+{
+    UIFont *font = nil;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+    {
+        font = [UIFont boldSystemFontOfSize:14.0];
+    }
+    else
+    {
+        switch (self.mode)
+        {
+            case VYStateViewModeStatic:
+            {
+                font = [UIFont systemFontOfSize:17];
+                break;
+            }
+            case VYStateViewModeActivity:
+            {
+                font = [UIFont systemFontOfSize:14];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    
+    return font;
+}
+
+- (UIColor *)vy_defaultTextColor
+{
+    return [UIColor blackColor];
+}
+
+- (UIColor *)vy_defaultTextShadowColor
+{
+    return nil;
+}
+
+- (CGFloat)vy_defaultMargins
+{
+    return 20.0;
+}
+
+- (CGFloat)vy_defaultHorizontalPadding
+{
+    return floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1 ? 5.0 : 4.0;
+}
+
+- (CGFloat)vy_defaultVerticalPadding
+{
+    return floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1 ? 10.0 : 11.0;
+}
+
+#pragma mark -
+#pragma mark Creating New Views
+
+- (UIActivityIndicatorView *)vy_newActivityIndicatorView
+{
+    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicatorView.hidesWhenStopped = NO;
+    activityIndicatorView.color = self.textColor;
+    
+    return activityIndicatorView;
+}
+
+- (UIImageView *)vy_newImageView
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    imageView.backgroundColor = [UIColor clearColor];
+    imageView.opaque = NO;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    return imageView;
+}
+
+- (UILabel *)vy_newTitleLabel
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.opaque = NO;
+    label.font = self.titleFont != nil ? self.titleFont : [self vy_defaultTitleLabelFont];
+    label.textColor = self.textColor;
+    label.shadowColor = self.textShadowColor;
+    label.shadowOffset = CGSizeMake(0.0, -1.0);
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 0;
+    label.adjustsFontSizeToFitWidth = NO;
+    
+    return label;
+}
+
+- (UILabel *)vy_newMessageLabel
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.opaque = NO;
+    label.font = self.messageFont != nil ? self.messageFont : [self vy_defaultMessageLabelFont];
+    label.textColor = self.textColor;
+    label.shadowColor = self.textShadowColor;
+    label.shadowOffset = CGSizeMake(0.0, -1.0);
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 0;
+    label.adjustsFontSizeToFitWidth = NO;
+    
+    return label;
+}
+
+#pragma mark -
+#pragma mark Aligning Subviews
 
 - (void)vy_alignSubviewsHorizontaly:(NSArray *)subviews usingPadding:(CGFloat)padding
 {
@@ -461,16 +602,31 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
     }
 }
 
-- (CGFloat)padding
+- (CGFloat)horizontalPadding
 {
-    return _vy_padding;
+    return _vy_horizontalPadding;
 }
 
-- (void)setPadding:(CGFloat)padding
+- (void)setHorizontalPadding:(CGFloat)horizontalPadding
 {
-    if (_vy_padding != padding)
+    if (_vy_horizontalPadding != horizontalPadding)
     {
-        _vy_padding = padding;
+        _vy_horizontalPadding = horizontalPadding;
+        
+        [self setNeedsLayout];
+    }
+}
+
+- (CGFloat)verticalPadding
+{
+    return _vy_verticalPadding;
+}
+
+- (void)setVerticalPadding:(CGFloat)verticalPadding
+{
+    if (_vy_verticalPadding != verticalPadding)
+    {
+        _vy_verticalPadding = verticalPadding;
         
         [self setNeedsLayout];
     }
@@ -481,26 +637,18 @@ static const CGFloat kVYStateViewMessageLabelFontSize = 14.0;
 // ********************************************************************************************************************************************************** //
 
 #pragma mark -
-#pragma mark NSString Extensions
+#pragma mark UIColor Extensions
 
-@implementation NSString (VYStateViewAdditions)
+@implementation UIColor (VYStateViewAdditions)
 
-- (CGSize)vy_sizeWithFont:(UIFont *)font forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode
++ (UIColor *)vy_darkGrayColor
 {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
-    return [self sizeWithAttributes:@{NSFontAttributeName: font}];
-#else
-    return [self sizeWithFont:font forWidth:width lineBreakMode:lineBreakMode];
-#endif
+    return [self colorWithWhite:0.4 alpha:1.0];
 }
 
-- (CGSize)vy_sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
++ (UIColor *)vy_lightGrayColor
 {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
-    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context:nil].size;
-#else
-    return [self sizeWithFont:font constrainedToSize:size];
-#endif
+    return [self colorWithWhite:0.6 alpha:1.0];
 }
 
 @end
