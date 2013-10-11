@@ -272,7 +272,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VY;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Vitaly Yurchenko";
 			};
 			buildConfigurationList = D8D00D07153825BF000E4A7B /* Build configuration list for PBXProject "VYStateView" */;

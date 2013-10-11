@@ -47,6 +47,9 @@
 
 @implementation VYStateView
 
+@synthesize titleFont = _titleFont;
+@synthesize messageFont = _messageFont;
+
 #pragma mark -
 #pragma mark Object Lifecycle
 
@@ -211,6 +214,9 @@
             break;
     }
     
+    self.vy_titleLabel.font = self.titleFont;
+    self.vy_messageLabel.font = self.messageFont;
+    
     [self setNeedsLayout];
 }
 
@@ -344,25 +350,35 @@
     [self setNeedsLayout];
 }
 
+- (UIFont *)titleFont
+{
+    return _titleFont != nil ? _titleFont : [self vy_defaultTitleLabelFont];
+}
+
 - (void)setTitleFont:(UIFont *)titleFont
 {
     if (_titleFont != titleFont)
     {
-        _titleFont = titleFont != nil ? titleFont : [self vy_defaultTitleLabelFont];
+        _titleFont = titleFont;
         
-        self.vy_titleLabel.font = _titleFont;
+        self.vy_titleLabel.font = _titleFont != nil ? _titleFont : [self vy_defaultTitleLabelFont];
         
         [self setNeedsLayout];
     }
+}
+
+- (UIFont *)messageFont
+{
+    return _messageFont != nil ? _messageFont : [self vy_defaultMessageLabelFont];
 }
 
 - (void)setMessageFont:(UIFont *)messageFont
 {
     if (_messageFont != messageFont)
     {
-        _messageFont = messageFont != nil ? messageFont : [self vy_defaultMessageLabelFont];
+        _messageFont = messageFont;
         
-        self.vy_messageLabel.font = _messageFont;
+        self.vy_messageLabel.font = _messageFont != nil ? _messageFont : [self vy_defaultMessageLabelFont];
         
         [self setNeedsLayout];
     }
@@ -402,8 +418,8 @@
     self.opaque = NO;
     
     // Set default values.
-    _titleFont = [self vy_defaultTitleLabelFont];
-    _messageFont = [self vy_defaultMessageLabelFont];
+    _titleFont = nil;
+    _messageFont = nil;
     _textColor = [self vy_defaultTextColor];
     _textShadowColor = [self vy_defaultTextShadowColor];
     
@@ -442,12 +458,11 @@
                 break;
             }
             case VYStateViewModeActivity:
+            default:
             {
                 font = [UIFont systemFontOfSize:14];
                 break;
             }
-            default:
-                break;
         }
     }
     

@@ -46,15 +46,14 @@ NS_CLASS_AVAILABLE_IOS(6_0) @interface VYStateView : UIView
 @property (nonatomic, copy) NSAttributedString *attributedMessage;
 
 /*
- titleFont: default is: 
+ titleFont: default is nil which mean:
     iOS 6 - system font 20pt bold;
     iOS 7 - system font 27pt plain.
  
- messageFont: default is:
+ messageFont: default is nil which mean:
     iOS 6 - system font 14pt bold;
     iOS 7 - system font 17pt plain in VYStateViewModeStatic;
     iOS 7 - system font 14pt plain in VYStateViewModeActivity.
-    Set nil to reset to default font.
  
  textColor: default is blackColor.
  

@@ -40,7 +40,6 @@
         case VYStateViewModeStatic:
         {
             self.stateView.mode = VYStateViewModeActivity;
-            self.stateView.messageFont = nil;
             self.stateView.image = nil;
             self.stateView.attributedTitle = nil;
             self.stateView.attributedMessage = [[NSAttributedString alloc] initWithString:@"Loading…"];
@@ -51,7 +50,6 @@
         case VYStateViewModeActivity:
         {
             self.stateView.mode = VYStateViewModeStatic;
-            self.stateView.messageFont = nil;
             self.stateView.image = [UIImage imageNamed:@"STAR"];
             self.stateView.attributedTitle = [[NSAttributedString alloc] initWithString:@"No Stars"];
             
