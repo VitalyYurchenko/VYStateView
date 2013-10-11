@@ -70,12 +70,4 @@
     }
 }
 
-#pragma mark -
-#pragma mark <UIBarPositioningDelegate>
-
-- (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar
-{
-    return UIBarPositionTopAttached;
-}
-
 @end

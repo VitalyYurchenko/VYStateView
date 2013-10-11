@@ -9,8 +9,8 @@
 
 // Linking.
 BUNDLE_LOADER = $(BUNDLE_LOADER_$(CONFIGURATION))
-BUNDLE_LOADER_Debug = $(BUILT_PRODUCTS_DIR)/VYStateView.app/VYStateView.app
-BUNDLE_LOADER_Release = $(BUILT_PRODUCTS_DIR)/VYStateView.app.app/VYStateView.app
+BUNDLE_LOADER_Debug = $(BUILT_PRODUCTS_DIR)/VYStateView.app/VYStateView
+BUNDLE_LOADER_Release = $(BUILT_PRODUCTS_DIR)/VYStateView.app/VYStateView
 
 // Packaging.
 INFOPLIST_FILE = VYStateViewTests/VYStateViewTests-Info.plist

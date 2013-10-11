@@ -49,7 +49,6 @@
 		D883194E17EC960D00FCCF19 /* VYConfig-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYConfig-Debug.xcconfig"; sourceTree = "<group>"; };
 		D883194F17EC965A00FCCF19 /* VYStateView-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYStateView-Config.xcconfig"; sourceTree = "<group>"; };
 		D883195017EC98C500FCCF19 /* VYStateViewTests-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "VYStateViewTests-Config.xcconfig"; sourceTree = "<group>"; };
-		D883195217EC99A900FCCF19 /* VYStateViewTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VYStateViewTests.h; sourceTree = "<group>"; };
 		D883195317EC99A900FCCF19 /* VYStateViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VYStateViewTests.m; sourceTree = "<group>"; };
 		D883195417EC99A900FCCF19 /* VYStateViewTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VYStateViewTests-Info.plist"; sourceTree = "<group>"; };
 		D883195917EC9AD700FCCF19 /* VYStateView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VYStateView.xcassets; sourceTree = "<group>"; };
@@ -174,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				D883195717EC99B400FCCF19 /* Supporting Files */,
-				D883195217EC99A900FCCF19 /* VYStateViewTests.h */,
 				D883195317EC99A900FCCF19 /* VYStateViewTests.m */,
 			);
 			path = VYStateViewTests;
