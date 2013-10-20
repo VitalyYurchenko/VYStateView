@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YEw-gz-yi4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YEw-gz-yi4">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--State View Controller - VYStateView-->
+        <!--State View Controller-->
         <scene sceneID="Pwx-Uq-9ot">
             <objects>
                 <viewController storyboardIdentifier="VYStateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YEw-gz-yi4" customClass="VYStateViewController" sceneMemberID="viewController">
@@ -35,7 +35,6 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="VYStateView" id="770-Rc-Dbo"/>
                     <connections>
                         <outlet property="stateView" destination="yku-rR-Ehk" id="37a-8C-gW2"/>
                     </connections>
